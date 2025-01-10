@@ -1,5 +1,5 @@
 import React from "react";
-import './Ingredient.css';
+import "./Ingredient.css";
 
 interface IngredientProps {
   onAddCount: React.MouseEventHandler;
@@ -19,10 +19,10 @@ const Ingredient: React.FC<IngredientProps> = ({
   return (
     <div className="ingredient-container">
       <button type="button" onClick={onAddCount}>
-        <img src={ingredientImg} alt={ingredientName}/>
+        <img src={ingredientImg} alt={ingredientName} />
       </button>
-        <span className="ingredient-name">{ingredientName}</span>
-        <span className="ingredient-count">x{ingredientCount}</span>
+      <span className="ingredient-name">{ingredientName}</span>
+      <span className="ingredient-count">x{ingredientCount}</span>
       <button type="button" onClick={onDelete}>
         Удалить
       </button>

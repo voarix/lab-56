@@ -10,10 +10,10 @@ interface IngredientState {
 
 const App = () => {
   const [ingredients, setIngredients] = useState<IngredientState[]>([
-    {name: "Meat", count: 0},
-    {name: "Cheese", count: 0},
-    {name: "Salad", count: 0},
-    {name: "Bacon", count: 0},
+    { name: "Meat", count: 0 },
+    { name: "Cheese", count: 0 },
+    { name: "Salad", count: 0 },
+    { name: "Bacon", count: 0 },
   ]);
 
   const onAddCount = (ingredientIndex: number) => {
@@ -46,10 +46,14 @@ const App = () => {
 
   return (
     <>
-      <div style={{width: '1000px', display: "flex"}}>
-        <div style={{width: '100%', display: "flex", flexDirection: "column"}}>
+      <div style={{ width: "1280px", display: "flex" }}>
+        <div
+          style={{ width: "60%", display: "flex", flexDirection: "column" }}
+        >
           {INGREDIENTS.map((item, index) => {
-            const countArr = ingredients.filter((ingredient) => ingredient.name === item.name)[0];
+            const countArr = ingredients.filter(
+              (ingredient) => ingredient.name === item.name,
+            )[0];
 
             return (
               <Ingredient
@@ -62,6 +66,32 @@ const App = () => {
               />
             );
           })}
+        </div>
+        <div style={{width: '40%', display: "flex", flexDirection: "column", justifyContent: "center"}}>
+          <div className="Burger" >
+            <div className="BreadTop">
+              <div className="Seeds1"></div>
+              <div className="Seeds2"></div>
+            </div>
+            {ingredients.reduce<JSX.Element[]>((acc, ingredient) => {
+              if(ingredient.count > 0){
+                for(let i = 0; i < ingredient.count; i++) {
+                  acc.push(<div key={i+ingredient.name} className={ingredient.name}></div>);
+                }
+              } return acc;
+            }, [])}
+            <div className="BreadBottom"></div>
+
+            price: {
+            ingredients.reduce((acc, ingredient) => {
+              const priceIngredient = INGREDIENTS.filter((item) => item.name === ingredient.name)[0];
+              if(ingredient.count > 0){
+                acc = acc + (ingredient.count * priceIngredient.price);
+              }
+              return acc;
+            }, 30)
+          }
+          </div>
         </div>
       </div>
     </>
