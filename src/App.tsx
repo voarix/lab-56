@@ -42,14 +42,14 @@ const App = () => {
 
   return (
     <>
-      <div style={{ width: "1280px", display: "flex" }}>
+      <div className="container">
         <IngredientsList
           ingredients={ingredients}
           onAddCount={onAddCount}
           onDelete={onDelete}
         />
 
-       <Burger ingredients={ingredients} />
+        <Burger ingredients={ingredients} />
       </div>
     </>
   );

@@ -5,7 +5,9 @@ interface BurgerIngredientsProps {
   ingredients: IngredientState[];
 }
 
-const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({ ingredients }) => {
+const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({
+  ingredients,
+}) => {
   return (
     <>
       {ingredients.reduce<JSX.Element[]>((acc, ingredient) => {

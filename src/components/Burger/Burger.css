@@ -1,0 +1,6 @@
+.burger-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

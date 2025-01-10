@@ -9,8 +9,7 @@ interface BurgerIngredientsPrice {
 const Price: React.FC<BurgerIngredientsPrice> = ({ ingredients }) => {
   return (
     <>
-      price:
-      {ingredients.reduce((acc, ingredient) => {
+      price: {ingredients.reduce((acc, ingredient) => {
         const priceIngredient = INGREDIENTS.filter(
           (item) => item.name === ingredient.name,
         )[0];
@@ -18,7 +17,7 @@ const Price: React.FC<BurgerIngredientsPrice> = ({ ingredients }) => {
           acc = acc + ingredient.count * priceIngredient.price;
         }
         return acc;
-      }, 30)}
+      }, 30)} KGS
     </>
   );
 };

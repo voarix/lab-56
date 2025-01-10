@@ -2,6 +2,7 @@ import React from "react";
 import { IngredientState } from "../../types";
 import Price from "./Price.tsx";
 import BurgerIngredients from "./BurgerIngredients.tsx";
+import "./Burger.css";
 
 interface BurgerProps {
   ingredients: IngredientState[];
@@ -9,14 +10,7 @@ interface BurgerProps {
 
 const Burger: React.FC<BurgerProps> = ({ ingredients }) => {
   return (
-    <div
-      style={{
-        width: "40%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-      }}
-    >
+    <div className="burger-container">
       <div className="Burger">
         <div className="BreadTop">
           <div className="Seeds1"></div>
