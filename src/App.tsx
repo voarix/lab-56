@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import INGREDIENTS from "./ingredients.ts";
-import Ingredient from "./components/Ingredient.tsx";
+import Ingredient from "./components/Ingredient/Ingredient.tsx";
 
 interface IngredientState {
   name: string;
@@ -10,10 +10,10 @@ interface IngredientState {
 
 const App = () => {
   const [ingredients, setIngredients] = useState<IngredientState[]>([
-    { name: "Meat", count: 0 },
-    { name: "Cheese", count: 0 },
-    { name: "Salad", count: 0 },
-    { name: "Bacon", count: 0 },
+    {name: "Meat", count: 0},
+    {name: "Cheese", count: 0},
+    {name: "Salad", count: 0},
+    {name: "Bacon", count: 0},
   ]);
 
   const onAddCount = (ingredientIndex: number) => {
@@ -46,21 +46,23 @@ const App = () => {
 
   return (
     <>
-      <div style={{display: 'flex'}}>
-        {INGREDIENTS.map((item, index) => {
-          const countArr = ingredients.filter((ingredient) => ingredient.name === item.name)[0];
+      <div style={{width: '1000px', display: "flex"}}>
+        <div style={{width: '100%', display: "flex", flexDirection: "column"}}>
+          {INGREDIENTS.map((item, index) => {
+            const countArr = ingredients.filter((ingredient) => ingredient.name === item.name)[0];
 
-          return (
-            <Ingredient
-              key={index}
-              ingredientImg={item.image}
-              ingredientName={item.name}
-              ingredientCount={countArr.count}
-              onAddCount={() => onAddCount(index)}
-              onDelete={() => onDelete(index)}
-            />
-          );
-        })}
+            return (
+              <Ingredient
+                key={index}
+                ingredientImg={item.image}
+                ingredientName={item.name}
+                ingredientCount={countArr.count}
+                onAddCount={() => onAddCount(index)}
+                onDelete={() => onDelete(index)}
+              />
+            );
+          })}
+        </div>
       </div>
     </>
   );
