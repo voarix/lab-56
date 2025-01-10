@@ -4,13 +4,15 @@ import { IngredientState } from "./types";
 import IngredientsList from "./components/Ingredients/Ingredients.tsx";
 import Burger from "./components/Burger/Burger.tsx";
 
+const initialIngredients: IngredientState[]= [
+  { name: "Meat", count: 0 },
+  { name: "Cheese", count: 0 },
+  { name: "Salad", count: 0 },
+  { name: "Bacon", count: 0 },
+];
+
 const App = () => {
-  const [ingredients, setIngredients] = useState<IngredientState[]>([
-    { name: "Meat", count: 0 },
-    { name: "Cheese", count: 0 },
-    { name: "Salad", count: 0 },
-    { name: "Bacon", count: 0 },
-  ]);
+  const [ingredients, setIngredients] = useState<IngredientState[]>(initialIngredients);
 
   const onAddCount = (ingredientIndex: number) => {
     setIngredients(
